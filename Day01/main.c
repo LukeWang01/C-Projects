@@ -163,16 +163,60 @@ int main() {
     int p1 = 30;
     double p2 = 4.0;
 
-    printf("%p\n%p\n%p",&p1, &p2, &student1);
+    printf("%p\n%p\n%p\n",&p1, &p2, &student1);
     //0x7ff7b5ea4680
     //0x7ff7b5ea4678
     //0x7ff7b703c6d8
 
 
+    printf("---------split---------\n");
     // pointer, a kind of data type, save the address
+    int bala = 30;
+    double bala1 = 30.4;
+    char bala2 ='A';
+    int * pbal = &bala; // save the address
+    char * pbala2 = &bala2;
+    printf("%d\n", * pbal);  //print the address value
+    printf("%p\n", pbal);
+    printf("%d\n", * pbala2);
+    printf("%p\n", pbala2);
+    printf("%d\n", * &bala);  //
+
+
+    printf("-------split-------\n");
+
+    // File IO
+
+    FILE  * fpointer = fopen("test.txt", "w"); // r for read, w for write, a for append
+
+    fprintf(fpointer, "Luke BABA\nHAHHAHAHAHA\n\n End, that's it.\n");  // this will override the content
+
+    fclose(fpointer); // file need to be closed.
+
+    FILE * fpointer2 = fopen("test.txt", "a");
+
+    fprintf(fpointer2, "This is the appended information\n");
+
+    fclose(fpointer2);
+
+    // read file
+
+    char line[255];
+    FILE * fpointer3 = fopen("test.txt", "r");
+
+    fgets(line, 255, fpointer3);  // read first line, and move the pointer to next line
+    printf("%s\n", line);
+    fgets(line, 255, fpointer3);  // read first line, and move the pointer to next line
+    printf("%s\n", line);
+
+    fclose(fpointer3);
+
+
+
 
     return 0;
 }
+
 
 
 
